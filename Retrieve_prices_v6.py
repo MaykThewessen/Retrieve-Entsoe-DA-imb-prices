@@ -38,13 +38,12 @@ import os
 load_dotenv()
 
 #%% set API key, date, location
-#client = EntsoePandasClient(api_key="4a2ed80d-d974-47ef-8d11-778e05f67850")
 api_key = os.getenv('ENTSOE_API_KEY', 'default_api_key')
 client = EntsoePandasClient(api_key=api_key)
 
 print("Script started to retrieve Day-Ahead and Imbalance prices using Python and Entso-e API script")
 start = pd.Timestamp('2024-01-01 00:00:00', tz='Europe/Brussels')
-end   = pd.Timestamp('2024-12-20 00:00:00', tz='Europe/Brussels')
+end   = pd.Timestamp('2024-12-21 00:00:00', tz='Europe/Brussels')
 print(f"Start date: {start.strftime('%Y-%m-%d %H:%M:%S')}")
 print(f"End date:   {end.strftime('%Y-%m-%d %H:%M:%S')}")
 country_code = 'NL'  # Netherlands, #country_code_from = 'FR'  # France, #country_code_to = 'DE_LU' # Germany-Luxembourg
