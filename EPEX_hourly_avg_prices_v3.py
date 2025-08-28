@@ -232,10 +232,8 @@ fig.update_layout(title=f'EPEX Prices Analysis by Mayk Thewessen, exported on:{d
 
 # Show the plot
 fig.show()
-fig.write_html(f"EPEX_Prices_Analysis_v3_{datetime.datetime.now().strftime("%Y-%m-%d")}.html")
+fig.write_html("EPEX_Prices_Analysis.html")
 
-import plotly.io as pio
-# Configure plotly to not include MathJax
-pio.kaleido.scope.mathjax = None
-pio.write_image(fig, 'EPEX_Prices_Analysis.pdf', width=800, height=1122)
+# Save as PDF
+fig.write_image('EPEX_Prices_Analysis.pdf', width=800, height=1122)
 

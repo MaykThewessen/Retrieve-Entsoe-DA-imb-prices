@@ -270,7 +270,7 @@ import plotly.io as pio
 fig1 = px.line(df, x='time', y='DA_price', title=f'Day-Ahead Electricity Price NL:')
 fig1.update_xaxes(title_text="Time")
 fig1.update_yaxes(title_text="Electricity price €/MWh")
-pio.write_image(fig1, 'DA_Price_Time_Series.pdf', width=800, height=600)
+fig1.write_image('DA_Price_Time_Series.pdf', width=800, height=600)
 
 # Plot 2: Average Price per Hour for various years
 fig2 = go.Figure()
@@ -280,7 +280,7 @@ for year in [2019, 2022, 2025]:
 fig2.update_layout(title=f'Average Dynamic EPEX Price NL per Hour:',
                    xaxis_title='Hour of the Day',
                    yaxis_title='Electricity price €/MWh')
-pio.write_image(fig2, 'Hourly_Avg_Prices_by_Year.pdf', width=800, height=600)
+fig2.write_image('Hourly_Avg_Prices_by_Year.pdf', width=800, height=600)
 
 # Plot 3: Average Price per Hour by Month for year 2024
 fig3 = go.Figure()
@@ -290,7 +290,7 @@ for month in [1, 4, 12]:
 fig3.update_layout(title=f'Average Price per Hour per Month of 2024',
                    xaxis_title='Hour of the Day',
                    yaxis_title='Electricity price €/MWh')
-pio.write_image(fig3, 'Hourly_Avg_Prices_by_Month_2024.pdf', width=800, height=600)
+fig3.write_image('Hourly_Avg_Prices_by_Month_2024.pdf', width=800, height=600)
 
 # Plot 4: Histogram of Prices
 fig4 = go.Figure()
@@ -299,14 +299,14 @@ for year in years:
 fig4.update_layout(title=f'DA Price Distribution - {datetime.datetime.now().strftime("%Y-%m-%d")}',
                    xaxis_title='Electricity price €/MWh',
                    yaxis_title='Frequency [hours/year]')
-pio.write_image(fig4, 'DA_Price_Distribution.pdf', width=800, height=600)
+fig4.write_image('DA_Price_Distribution.pdf', width=800, height=600)
 
 # Plot 5: Annual Average Prices
 fig5 = go.Figure(data=[go.Bar(x=annual_avg_prices.index, y=annual_avg_prices['Annual Average'])])
 fig5.update_layout(title=f'Annual Average Day-Ahead Electricity Prices',
                    xaxis_title='Year',
                    yaxis_title='Electricity price €/MWh')
-pio.write_image(fig5, 'Annual_Average_Prices.pdf', width=800, height=600)
+fig5.write_image('Annual_Average_Prices.pdf', width=800, height=600)
 
 # Update layout to accommodate the table
 fig.update_layout(

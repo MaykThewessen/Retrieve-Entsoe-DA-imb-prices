@@ -67,7 +67,5 @@ fig.update_layout(title='EPEX Prices Analysis',
 fig.show()
 fig.write_html("EPEX_Prices_Analysis.html")
 
-import plotly.io as pio
-# Configure plotly to not include MathJax
-pio.kaleido.scope.mathjax = None
-pio.write_image(fig, 'EPEX_Prices_Analysis.pdf', width=800, height=1122)
+# Save as PDF
+fig.write_image('EPEX_Prices_Analysis.pdf', width=800, height=1122)
